@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Model price of tomato from given distric </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="statename" placeholder="State name as no" required="required" />
+      <input type="text" name="minprice" placeholder="Min price" required="required" />
+	    <input type="text" name="maxprice" placeholder="Max price" required="required" />
+      <p>Please note that Distric Name is map with no is as below</p>
+      <p>'Hassan':1, 'Chikmagalur':2, 'Kolar':3, 'Belgaum':4, 'Bellary':5,
+        'Bangalore':6, 'Chamrajnagar':7, 'Davangere':8, 'Dharwad':9, 'Gadag':10,
+        'Madikeri(Kodagu)':11, 'Haveri':12, 'Chitradurga':13, 'Mysore':14, 'Mandya':15}</p>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
